@@ -74,7 +74,8 @@
     
     .starter{
       display:inline-flex;
-      jutify
+      justify-content: space-between;
+      align-content: center;
     }
     }
 
