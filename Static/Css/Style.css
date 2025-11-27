@@ -182,8 +182,6 @@ dvh , vh  , write both */
 .BackSide {
   background: white;
   color: #007acc;
-
-  /* 👆 KEY: BackSide شروع از 180 درجه می‌چرخد */
   transform: rotateY(180deg);
 
   border: 2px solid #007acc;
@@ -248,13 +246,10 @@ dvh , vh  , write both */
     gap: 0.8rem;
     padding: 1.2rem;
 }
-
-/* Orientation is when turn the phone vertically : Landscape */
-@media only screen and (max-width: 600px) and (orientation: landscape) {
-
 }
+
 /* 601 - 768 / Tablet*/
-@media only screen and (min-width: 601px) and (max-width: 768px) {
+@media only screen and (min-width: 348px) and (max-width: 768px) {
 
 
 }
