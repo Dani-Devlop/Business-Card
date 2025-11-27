@@ -80,68 +80,216 @@ dvh , vh  , write both */
   border-radius: clamp(0.6em, 1vw, 1.5rem);
   gap: clamp(1rem, 2vw, 2rem);
   /* margin:clamp(1.5em, 5vw, 3rem) ; */
-  padding: clamp(1.5em, 5vw, 3rem) ;
+  padding: clamp(1.5em, 5vw, 3rem);
   width: clamp(220px, 90vw, 500px);
+  height: clamp(300px, 60vw, 450px);
+
   background-color: #007acc;
+
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+/* Flip the Card */
+
+.Card:hover {
+  transform: rotateY(180deg);
 }
 
 /* ========================================================================== */
-/* ===== First Side ====== */
-.FrontSide {
+/* ===== Front / Back Side ====== */
+
+.FrontSide,
+.BackSide {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  /* 👆 KEY: backface پنهان بشه وقتی کارت می‌چرخد */
+  backface-visibility: hidden;
+
+  border-radius: clamp(0.6rem, 1vw, 1.5rem);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  width: 100%;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+/* ===== Front / Back Side ====== */
+.FrontSide {
+  background: linear-gradient(135deg, #007acc 0%, #0056b3 100%);
+  color: white;
+  font-family:"Courier New", Courier, monospace	 ;
 }
 
 .CardTitle {
-  margin: 0;
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  color: var(--Text-color-front);
-  width: 100%;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
   text-align: center;
+  margin: 0;
+  width: 100%;
 }
 
-.CardContent{
+.CardContent {
   display: flex;
-  justify-content: center;
-  align-self: center;
-  gap: clamp(1rem , 2vw , 1.5 rem);
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
   width: 100%;
   flex-wrap: wrap;
-}.Name {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.Logo {
+  flex-shrink: 0;
+}
+
+.Logo img {
+  width: clamp(100px, 20vw, 180px);
+  height: clamp(100px, 20vw, 180px);
+  border-radius: 1.5rem;
+  border: 3px solid #fff;
+  padding: 2px;
+  object-fit: cover;
+}
+
+.TextContent {
+  flex: 1;
+  min-width: 150px;
+}
+
+.Name {
+  font-size: clamp(1.2rem, 3vw, 2rem);
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
-  color: white;
-  text-align: center;
 }
 
 .Name .Occupied {
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   font-weight: 400;
-  opacity: 0.85;
+  opacity: 0.9;
   display: block;
   margin-top: 0.5rem;
 }
 
-/* ===== BackSide (برای بعدها) ===== */
+/* =================== BACK SIDE =================*/
 .BackSide {
-  width: 100%;
-  height: 100%;
-  background-color: #0a0a0a;
-  border-radius: clamp(0.6rem, 1vw, 1.5rem);
+  background: white;
+  color: #007acc;
+
+  /* 👆 KEY: BackSide شروع از 180 درجه می‌چرخد */
+  transform: rotateY(180deg);
+
+  border: 2px solid #007acc;
+}
+
+.BackContent {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.BackContent h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 1rem 0;
+  color: #007acc;
+}
+
+.BackContent p {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  margin: 0.5rem 0;
+  line-height: 1.8;
 }
 
 
-/* 
-.Card:hover .Card-inner {
-  transform: rotateY(180deg);
+
+
+/* ======================= Media and responsive ================================ */
+
+/* 0 - 600 */
+/* Only Screen for before the 90's if " Only Screen " doesn't exist in our code they see mobile version on their Pc */
+/* Orientation is when turn the phone horizontally : portrait */
+@media only screen and (max-width: 348px) and (orientation: portrait) {
+ .CardContent {
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+   .Logo img {
+    width: 9rem;
+    height: 9rem;
+
+  }
+  .TextContent {
+    width: 100%;
+    text-align: center; 
+  }
+.Name{
+  font-size: 1.2rem;
 }
-*/
-.Card:hover {
-  transform: rotateY(180deg);
+.name .Occupied{
+  font-size: 0.9rem;
+}
+.CardTitle{
+  font-size: 1rem;
+}
+.Card{
+  padding: 1rem;
+}
+  .FrontSide {
+    gap: 0.8rem;
+    padding: 1.2rem;
+}
+
+/* Orientation is when turn the phone vertically : Landscape */
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+
+}
+/* 601 - 768 / Tablet*/
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+
+
+}
+
+/* 769 - 991 / Lager Tablet */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  
+}
+/* 992 - 1000   */
+@media only screen and (min-width: 992px) {
+  
+}
+
+/* 4k - 1208 To 2560  */
+
+/*  <600px , 601px , 768px , 992px , above 1200px*/
+/* Highest width display is 8k : 7680pixels */
+
+@supports (height: 100dvh) {
+  body,
+  .content-top {
+    height: 100dvh;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .wrapper-main {
+      height: calc(100dvh - 16px);
+    }
+  }
+}
+
+/* Fallback for iOS old */
+@supports not (height: 100dvh) {
+  body,
+  .content-top {
+    height: -webkit-fill-available;
+  }
 }

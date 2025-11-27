@@ -3,34 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Flip Card with Logo</title>
     <link rel="stylesheet" href="./Static/Css/Style.css" />
   </head>
   <body>
     <div class="Container-card">
-      <!-- Single Card -->
+      <!-- کارت اصلی -->
       <div class="Card">
-        <!-- ============ FrontSide ============  -->
+        <!-- ============ صفحه جلو ============ -->
         <div class="FrontSide">
+          <!-- عنوان سلام -->
           <div class="CardTitle">Hello there</div>
+
+          <!-- محتوای اصلی (لوگو + نام + شغل) -->
           <div class="CardContent">
+            <!-- لوگو -->
             <div class="Logo">
               <img
                 src="https://github.com/Dani-Devlop/MyBlog/blob/main/Components%2FPicture%2FLogo.jpg?raw=true"
                 alt="Dani Logo"
-                height="20px"
-                width="20px" />
+                
+                />
             </div>
-            <div class="Name">
-              i'm Dani<br />
-              <span class="Occupied"> a Front-end Developer </span>
+
+            <!-- متن (نام و شغل) -->
+            <div class="TextContent">
+              <div class="Name">
+                i'm Dani
+                <span class="Occupied">a Front-end Developer</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- ============ FrontSide ============  -->
-        <div class="BackSide"></div>
+        <!-- ============ صفحه پشت ============ -->
+        <div class="BackSide">
+          <div class="BackContent">
+            <h2>Contact Me</h2>
+            <p>📧 dani@example.com</p>
+            <p>💼 Portfolio</p>
+            <p>🔗 GitHub</p>
+          </div>
+        </div>
       </div>
     </div>
   </body>
