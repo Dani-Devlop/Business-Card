@@ -70,6 +70,10 @@ dvh , vh  , write both */
   align-items: center;
   min-height: 100dvh;
   padding: clamp(1rem, 5vw, 2rem);
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(0.8rem, 4vw, 2.5rem);
 }
 
 .Card {
@@ -90,6 +94,7 @@ dvh , vh  , write both */
   transform-style: preserve-3d;
   transition: transform 0.6s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
 
 /* Flip the Card */
@@ -103,11 +108,11 @@ dvh , vh  , write both */
 
 .FrontSide,
 .BackSide {
+  position: absolute;
   width: 100%;
   height: 100%;
 
   position: absolute;
-  /* 👆 KEY: backface پنهان بشه وقتی کارت می‌چرخد */
   backface-visibility: hidden;
 
   border-radius: clamp(0.6rem, 1vw, 1.5rem);
@@ -117,7 +122,7 @@ dvh , vh  , write both */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: clamp(1.5rem, 5vw, 3rem);
+  padding: clamp(1.5rem, 5vw, 2rem);
   gap: clamp(1rem, 2vw, 2rem);
 }
 
@@ -125,11 +130,11 @@ dvh , vh  , write both */
 .FrontSide {
   background: linear-gradient(135deg, #007acc 0%, #0056b3 100%);
   color: white;
-  font-family:"Courier New", Courier, monospace	 ;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .CardTitle {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1.4rem, 5.5vw, 2.6rem);
   font-weight: 700;
   text-align: center;
   margin: 0;
@@ -138,11 +143,13 @@ dvh , vh  , write both */
 
 .CardContent {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: clamp(1rem, 3vw, 2rem);
+  gap: clamp(2rem, 4.4vw, 6rem);
   width: 100%;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 .Logo {
@@ -150,8 +157,8 @@ dvh , vh  , write both */
 }
 
 .Logo img {
-  width: clamp(100px, 20vw, 180px);
-  height: clamp(100px, 20vw, 180px);
+  width: clamp(130px, 24vw, 180px);
+  height: clamp(130px, 24vw, 180px);
   border-radius: 1.5rem;
   border: 3px solid #fff;
   padding: 2px;
@@ -161,17 +168,18 @@ dvh , vh  , write both */
 .TextContent {
   flex: 1;
   min-width: 150px;
+  text-align: left;
 }
 
 .Name {
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
 }
 
 .Name .Occupied {
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-size: clamp(1rem, 2.4vw, 3rem);
   font-weight: 400;
   opacity: 0.9;
   display: block;
@@ -206,61 +214,61 @@ dvh , vh  , write both */
   line-height: 1.8;
 }
 
-
-
-
 /* ======================= Media and responsive ================================ */
 
 /* 0 - 600 */
 /* Only Screen for before the 90's if " Only Screen " doesn't exist in our code they see mobile version on their Pc */
 /* Orientation is when turn the phone horizontally : portrait */
-@media only screen and (max-width: 348px) and (orientation: portrait) {
- .CardContent {
-    flex-direction: column; 
+@media only screen and (max-width: 400px) {
+  .CardContent {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
   }
-   .Logo img {
+  .Logo img {
     width: 9rem;
     height: 9rem;
-
   }
   .TextContent {
     width: 100%;
-    text-align: center; 
+    text-align: center;
   }
-.Name{
-  font-size: 1.2rem;
-}
-.name .Occupied{
-  font-size: 0.9rem;
-}
-.CardTitle{
-  font-size: 1rem;
-}
-.Card{
-  padding: 1rem;
-}
+  .Name {
+    font-size: 1.2rem;
+  }
+  .name .Occupied {
+    font-size: 0.9rem;
+  }
+  .CardTitle {
+    font-size: 1.5rem;
+  }
+  .Card {
+    padding: 1rem;
+  }
   .FrontSide {
     gap: 0.8rem;
     padding: 1.2rem;
-}
+  }
 }
 
 /* 601 - 768 / Tablet*/
-@media only screen and (min-width: 348px) and (max-width: 768px) {
-
-
+@media only screen and (min-width: 401px) and (max-width: 768px) {
 }
-
 /* 769 - 991 / Lager Tablet */
 @media only screen and (min-width: 769px) and (max-width: 992px) {
-  
 }
 /* 992 - 1000   */
-@media only screen and (min-width: 992px) {
-  
+@media only screen and (min-width: 992px) and (max-width: 1440px) {
+  .Name .Occupied {
+    font-size: clamp(1rem, 1.8vw, 3rem);
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .CardContent {
+    gap: clamp(2rem, 3vw, 6rem);
+  }
 }
 
 /* 4k - 1208 To 2560  */
