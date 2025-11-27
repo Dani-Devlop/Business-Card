@@ -1,0 +1,64 @@
+. .FrontSide,
+.BackSide {
+  /* width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: var(---Shadow-box-Card); */
+}
+
+/* Front Side Styling */
+.FrontSide {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 50px;
+  background: var(--bg-color-Front);
+  color: var(--Text-color-front);
+  padding: 20px; */
+}
+
+.FrontSide .CardTitle {
+  /* 
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  flex-shrink: 0; */
+}
+
+.FrontSide .CardContent {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0; */
+}
+
+.FrontSide .Logo {
+  /* flex-shrink: 0; */
+}
+
+.FrontSide .Logo img {
+  /* width: 180px;
+  height: 180px;
+  border-radius: 2.3em;
+  object-fit: cover;
+  border: 3px solid #fff;
+  padding: 2px;
+  margin-left: 40px; */
+}
+
+.Name {
+  /* font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.4; */
+}
+
+.Name .Occupied {
+  /* font-size: 2rem;
+  font-weight: 400;
+  opacity: 0.9;
+  display: block;
+  margin-top: 5px; */
+}
