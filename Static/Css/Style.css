@@ -666,6 +666,7 @@ dvh , vh  , write both */
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+
   background: #1f1f1f;
   color: #e6e6e6;
   font-family: "Fira Mono", "Consolas", monospace;
@@ -691,6 +692,10 @@ dvh , vh  , write both */
   border: 1.5px solid #3a3a3a;
   counter-reset: code-line;
   line-height: 1;
+}
+
+.whoami-code::-webkit-scrollbar {
+  display: none;
 }
 
 .whoami-code span.code-line {
@@ -785,7 +790,7 @@ dvh , vh  , write both */
   border-top: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  height: clamp(100px, 24.1vh, 200px);
+  height: clamp(100px, 23.9vh, 200px);
   flex-shrink: 0;
 }
 
